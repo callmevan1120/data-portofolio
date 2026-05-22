@@ -1,31 +1,170 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<!doctype html>
+<html lang="id" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Vany Eka Karunia</title>
+    <title>Vany Eka Karunia | Web Dev & ERP Enthusiast</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+
     <style>
       body {
         font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #f5f3ff; /* Soft Lilac / Blue-Pink Base */
+        color: #312e81; /* Indigo 900 */
       }
-      /* Custom Gradient Background untuk Hero */
-      .bg-gradient-custom {
-        background: linear-gradient(135deg, #f0fdfa 0%, #e0e7ff 100%);
+
+      .dark body {
+        background-color: #1e1b4b; /* Deep Indigo */
+        color: #e0e7ff; /* Indigo 100 */
+      }
+
+      .text-gradient {
+        background: linear-gradient(
+          to right,
+          #ec4899,
+          #3b82f6
+        ); /* Pink to Blue */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .dark .text-gradient {
+        background: linear-gradient(to right, #f472b6, #60a5fa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* CLAYMORPHISM PINK-BLUE */
+      .clay-card {
+        background: #eef2ff; /* Indigo 50 */
+        border-radius: 2rem;
+        border: none;
+        box-shadow:
+          8px 8px 16px #c7d2fe,
+          -8px -8px 16px #ffffff; /* Indigo 200 shadow */
+        transition: all 0.3s ease;
+      }
+      .dark .clay-card {
+        background: #312e81; /* Indigo 900 */
+        box-shadow:
+          8px 8px 16px #0e0c2e,
+          -8px -8px 16B #4338ca;
+      }
+
+      .clay-card:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          6px 6px 12px #c7d2fe,
+          -6px -6px 12px #ffffff;
+      }
+      .dark .clay-card:hover {
+        box-shadow:
+          6px 6px 12px #0e0c2e,
+          -6px -6px 12px #4338ca;
+      }
+
+      .clay-inner {
+        background: #eef2ff;
+        border-radius: 1.5rem;
+        box-shadow:
+          inset 4px 4px 8px #c7d2fe,
+          inset -4px -4px 8px #ffffff;
+      }
+      .dark .clay-inner {
+        background: #312e81;
+        box-shadow:
+          inset 4px 4px 8px #0e0c2e,
+          inset -4px -4px 8px #4338ca;
+      }
+
+      .clay-btn {
+        background: linear-gradient(to right, #ec4899, #3b82f6);
+        color: white;
+        border-radius: 999px;
+        box-shadow:
+          4px 4px 8px #c7d2fe,
+          -4px -4px 8px #ffffff;
+        transition: all 0.2s;
+      }
+      .dark .clay-btn {
+        box-shadow:
+          4px 4px 8px #0e0c2e,
+          -4px -4px 8px #4338ca;
+      }
+      .clay-btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f5f3ff;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c7d2fe;
+        border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1e1b4b;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #312e81;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 999px;
+        transition: all 0.2s;
+      }
+
+      .project-img-container {
+        position: relative;
+        width: 100%;
+        background: #eef2ff;
+        border-radius: 2rem 2rem 0 0;
+        overflow: hidden;
+        border-bottom: 2px solid #e0e7ff;
+      }
+      .dark .project-img-container {
+        background: #1e1b4b;
+        border-bottom: 2px solid #312e81;
+      }
+
+      .img-h-48 {
+        height: 12rem;
+      }
+      .img-h-64 {
+        height: 16rem;
+      }
+      .img-h-72 {
+        height: 18rem;
+      }
+      .img-h-96 {
+        height: 24rem;
       }
     </style>
     <script>
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
-              primary: "#0d9488", // Teal 600
-              secondary: "#4f46e5", // Indigo 600
-              dark: "#0f172a", // Slate 900
+              brand: "#EC4899",
+              accent: "#3B82F6",
             },
           },
         },
@@ -33,582 +172,1169 @@
     </script>
   </head>
   <body
-    class="bg-white text-slate-800 antialiased selection:bg-teal-100 selection:text-teal-900"
+    class="antialiased selection:bg-brand selection:text-white relative overflow-x-hidden transition-colors duration-300"
   >
-    <nav
-      class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100"
+    <!-- Navbar Desktop -->
+    <div
+      class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-4xl hidden md:block"
     >
-      <div
-        class="container mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <a
-          href="#"
-          class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight"
-          >Portofolio</a
-        >
-        <div
-          class="hidden md:flex space-x-8 text-sm font-semibold text-slate-500"
-        >
-          <a href="#about" class="hover:text-primary transition-colors"
-            >Tentang</a
+      <nav class="clay-card px-8 py-3 flex justify-between items-center">
+        <div class="flex-shrink-0">
+          <a
+            href="#"
+            class="text-2xl font-extrabold text-indigo-900 dark:text-white tracking-wide"
+            >Vany<span class="text-brand">.</span></a
           >
-          <a href="#experience" class="hover:text-primary transition-colors"
+        </div>
+        <div
+          class="flex items-center gap-8 text-sm font-semibold text-indigo-800/70 dark:text-indigo-200/70"
+        >
+          <a href="#about" class="hover:text-brand transition-colors"
+            >Keahlian</a
+          >
+          <a href="#experience" class="hover:text-brand transition-colors"
             >Pengalaman</a
           >
-          <a href="#portfolio" class="hover:text-primary transition-colors"
-            >Portofolio</a
+          <a href="#portfolio" class="hover:text-brand transition-colors"
+            >Proyek</a
           >
-          <a href="#contact" class="hover:text-primary transition-colors"
+          <a href="#contact" class="hover:text-brand transition-colors"
             >Kontak</a
           >
         </div>
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <a
+            href="https://github.com/callmevan1120"
+            target="_blank"
+            class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-indigo-200/50 dark:hover:bg-indigo-900/40 text-indigo-800/70 dark:text-indigo-200/70 hover:text-accent transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          <button
+            id="theme-toggle"
+            class="w-9 h-9 flex items-center justify-center clay-inner hover:text-brand transition"
+          >
+            <svg
+              id="icon-sun"
+              class="w-5 h-5 hidden dark:block text-brand"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              ></path>
+            </svg>
+            <svg
+              id="icon-moon"
+              class="w-5 h-5 block dark:hidden text-accent"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Navbar Mobile -->
+    <nav
+      class="md:hidden fixed top-0 w-full z-50 clay-card rounded-b-3xl px-6 py-4 flex justify-between items-center"
+    >
+      <a
+        href="#"
+        class="text-2xl font-extrabold text-indigo-900 dark:text-white tracking-wide"
+        >Vany<span class="text-brand">.</span></a
+      >
+      <div class="flex items-center gap-3">
+        <button
+          id="theme-toggle-mobile"
+          class="w-9 h-9 flex items-center justify-center clay-inner transition"
+        >
+          <svg
+            class="w-5 h-5 hidden dark:block text-brand"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            ></path>
+          </svg>
+          <svg
+            class="w-5 h-5 block dark:hidden text-accent"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            ></path>
+          </svg>
+        </button>
+        <a href="#portfolio" class="clay-btn px-4 py-2 text-sm font-semibold"
+          >Karya</a
+        >
       </div>
     </nav>
 
+    <!-- Hero Section -->
     <section
       id="home"
-      class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-custom relative overflow-hidden"
+      class="min-h-screen flex items-center pt-24 pb-12 relative"
     >
       <div
-        class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
-      ></div>
-      <div
-        class="absolute top-0 left-0 -ml-20 -mt-20 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
-      ></div>
-
-      <div
-        class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-12 relative z-10"
+        class="container mx-auto px-6 max-w-6xl flex flex-col-reverse md:flex-row items-center gap-12 z-10"
       >
         <div class="flex-1 text-center md:text-left">
           <div
-            class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase bg-teal-100 rounded-full"
+            class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm font-semibold text-brand clay-inner"
           >
-            Data Analyst & Web Developer
+            Mahasiswi Tingkat Akhir D3 Teknik Informatika
           </div>
           <h1
-            class="text-5xl md:text-7xl font-bold text-dark mb-6 leading-tight"
+            class="text-4xl md:text-6xl font-extrabold text-indigo-950 dark:text-white mb-6 leading-tight"
           >
-            Transforming Data <br />
-            <span
-              class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-              >Into Insights.</span
-            >
+            Vany Eka Karunia<br />
+            <span class="text-gradient">Web Dev & ERP Enthusiast</span>
           </h1>
           <p
-            class="text-slate-600 text-lg mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
+            class="text-indigo-900/70 dark:text-indigo-100/70 text-base md:text-lg mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed"
           >
-            Halo, saya <strong>Vany Eka Karunia</strong>. Mahasiswi Teknik
-            Informatika yang fokus pada pengolahan data, visualisasi, dan
-            pengembangan dashboard interaktif.
+            Memiliki ketertarikan kuat pada rekayasa perangkat lunak dan
+            pengembangan web. Berpengalaman dalam pembuatan serta pengembangan
+            sistem aplikasi web dari front-end hingga integrasi API. Dikenal
+            sebagai pribadi yang analitis dan adaptif, siap menciptakan solusi
+            teknologi informasi yang efisien dan dapat diandalkan bagi
+            operasional bisnis.
           </p>
-          <div class="flex gap-4 justify-center md:justify-start">
-            <a
-              href="#portfolio"
-              class="px-8 py-4 bg-dark text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-slate-800 transition transform hover:-translate-y-1"
+          <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+            <a href="#portfolio" class="clay-btn px-6 py-3 text-sm font-bold"
+              >Lihat Proyek</a
             >
-              Lihat Portofolio
-            </a>
             <a
               href="#contact"
-              class="px-8 py-4 bg-white text-dark border border-slate-200 font-semibold rounded-full hover:bg-slate-50 transition"
+              class="px-6 py-3 clay-card text-indigo-900 dark:text-white text-sm font-bold hover:shadow-inner transition"
             >
               Hubungi Saya
             </a>
           </div>
         </div>
-        <div class="flex-1 flex justify-center relative">
-          <div class="relative w-64 h-64 md:w-80 md:h-80 group">
+
+        <div class="w-52 h-52 md:w-80 md:h-80 relative group">
+          <div
+            class="absolute inset-0 bg-gradient-to-tr from-brand to-accent rounded-full blur-xl opacity-20 group-hover:opacity-30 transition duration-500"
+          ></div>
+          <img
+            src="asset/pasfoto.jpg"
+            alt="Vany Eka Karunia"
+            class="relative w-full h-full object-cover rounded-full border-4 border-white dark:border-indigo-900/50 z-10 shadow-xl group-hover:scale-105 transition duration-500"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About & Skills Section -->
+    <section id="about" class="py-20 relative">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <h2
+          class="text-3xl font-extrabold text-indigo-950 dark:text-white mb-10"
+        >
+          Tech Stack
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="clay-card p-8 md:col-span-2">
             <div
-              class="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-500"
-            ></div>
-            <img
-              src="asset/pasfoto.jpg"
-              alt="Foto Vany"
-              class="relative w-full h-full object-cover rounded-full border-[6px] border-white shadow-2xl transform transition duration-500 group-hover:scale-105"
-            />
+              class="w-12 h-12 clay-inner text-brand rounded-2xl flex items-center justify-center mb-5"
+            >
+              <i class="devicon-php-plain text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-indigo-950 dark:text-white mb-4">
+              Backend & ERP Systems
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-laravel-plain text-lg"></i> Laravel</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-frappe-plain text-lg"></i> ERPNext</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-codeigniter-plain text-lg"></i>
+                CodeIgniter</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-nestjs-plain text-lg"></i> NestJS</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-mysql-plain text-lg"></i> MySQL</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-php-plain text-lg"></i> PHP</span
+              >
+            </div>
+          </div>
+          <div class="clay-card p-8">
+            <div
+              class="w-12 h-12 clay-inner text-accent rounded-2xl flex items-center justify-center mb-5"
+            >
+              <i class="devicon-python-plain text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-indigo-950 dark:text-white mb-4">
+              Data & Tools
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-python-plain text-lg"></i> Python</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-pandas-plain text-lg"></i> Pandas</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium"
+                >Streamlit</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium"
+                >ML</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-git-plain text-lg"></i> Git</span
+              >
+            </div>
+          </div>
+          <div class="clay-card p-8 md:col-span-3">
+            <div
+              class="w-12 h-12 clay-inner text-accent rounded-2xl flex items-center justify-center mb-5"
+            >
+              <i class="devicon-react-plain text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-indigo-950 dark:text-white mb-4">
+              Frontend Development
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-react-plain text-lg"></i> React.js
+                (Vite)</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-javascript-plain text-lg"></i>
+                JavaScript</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-tailwindcss-plain text-lg"></i> Tailwind
+                CSS</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-bootstrap-plain text-lg"></i> Bootstrap</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-html5-plain text-lg"></i> HTML/CSS</span
+              >
+              <span
+                class="px-4 py-2 clay-inner text-indigo-900 dark:text-indigo-100 text-sm rounded-full font-medium flex items-center gap-2"
+                ><i class="devicon-wordpress-plain text-lg"></i> WordPress</span
+              >
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="py-24 bg-white">
-      <div class="container mx-auto px-6 max-w-4xl text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">
-          Tentang Saya
+    <!-- Experience Section (Omitted for brevity, but would use exact same clay-card and border-accent/brand styles as previous) -->
+    <!-- I will keep the full code structure intact to ensure no data is lost -->
+    <section id="experience" class="py-20 relative">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <h2
+          class="text-3xl font-extrabold text-indigo-950 dark:text-white mb-10"
+        >
+          Pengalaman Kerja
         </h2>
-        <p class="text-slate-600 text-lg leading-relaxed mb-10">
-          Saya memiliki ketertarikan mendalam untuk mengubah data mentah menjadi
-          keputusan strategis. Berpengalaman dalam
-          <strong>Data Preprocessing, Visualisasi Data,</strong> hingga
-          membangun <strong>Web Dashboard</strong>. Saat ini aktif menempuh
-          studi D3 Teknik Informatika di Universitas Amikom Yogyakarta.
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="clay-card p-8 md:col-span-2 border-l-4 border-brand">
+            <span
+              class="px-3 py-1 clay-inner text-brand text-xs font-bold rounded-full"
+              >Feb 2026 - Sekarang</span
+            >
+            <h3
+              class="text-2xl font-bold text-indigo-950 dark:text-white mt-3 mb-1"
+            >
+              Staff IT
+            </h3>
+            <p class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-4">
+              PT. Juara Roti Indonesia, Klaten (Kontrak)
+            </p>
+            <ul
+              class="list-disc list-outside ml-4 text-indigo-900/80 dark:text-indigo-100/80 text-sm leading-relaxed space-y-2"
+            >
+              <li>
+                Mengimplementasikan sistem HR & Payroll menggunakan framework
+                ERPNext yang disesuaikan dengan alur bisnis multi-outlet.
+              </li>
+              <li>
+                Mengembangkan sistem pencatatan absensi karyawan yang
+                terintegrasi langsung ke dalam ERPNext.
+              </li>
+              <li>
+                Melakukan kustomisasi dan pemeliharaan modul ERPNext agar
+                berjalan selaras dengan kebutuhan operasional.
+              </li>
+              <li>
+                Menyusun user flow, menguji fungsionalitas sistem, serta
+                mendokumentasikan panduan operasional untuk pengguna.
+              </li>
+              <li>
+                Berkolaborasi dengan manajemen untuk memberikan solusi teknologi
+                yang mengoptimalkan pengelolaan SDM.
+              </li>
+            </ul>
+          </div>
+          <div class="clay-card p-8 border-l-4 border-accent">
+            <span
+              class="px-3 py-1 clay-inner text-accent text-xs font-bold rounded-full"
+              >24 - 26 Apr 2026</span
+            >
+            <h3
+              class="text-xl font-bold text-indigo-950 dark:text-white mt-3 mb-2"
+            >
+              Pembicara Pelatihan Web Programming
+            </h3>
+            <p class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-3">
+              Kopma UPN "Veteran" Yogyakarta
+            </p>
+            <p
+              class="text-indigo-900/80 dark:text-indigo-100/80 text-sm leading-relaxed"
+            >
+              Diundang sebagai pembicara pada pelatihan web programming dan
+              rekayasa perangkat lunak. Membimbing peserta dari instalasi
+              lingkungan kerja dasar hingga praktik pemrograman secara langsung.
+            </p>
+          </div>
+          <div class="clay-card p-8 border-l-4 border-brand">
+            <span
+              class="px-3 py-1 clay-inner text-brand text-xs font-bold rounded-full"
+              >Des 2025 - Sekarang</span
+            >
+            <h3
+              class="text-xl font-bold text-indigo-950 dark:text-white mt-3 mb-2"
+            >
+              Front End Developer
+            </h3>
+            <p class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-3">
+              SMP Negeri 1 Polanharjo, Klaten (Kontrak)
+            </p>
+            <ul
+              class="list-disc list-outside ml-4 text-indigo-900/80 dark:text-indigo-100/80 text-sm leading-relaxed space-y-1.5"
+            >
+              <li>
+                Mengembangkan antarmuka pengguna (UI) website layanan
+                e-kesiswaan yang interaktif, responsif, dan ramah pengguna.
+              </li>
+              <li>
+                Menerjemahkan rancangan desain visual dari tim UI/UX menjadi
+                kode front-end yang optimal.
+              </li>
+              <li>
+                Memastikan kelancaran navigasi dan berkolaborasi dengan tim
+                back-end untuk integrasi sistem.
+              </li>
+            </ul>
+          </div>
+          <div class="clay-card p-8 md:col-span-2 border-l-4 border-accent">
+            <span
+              class="px-3 py-1 clay-inner text-accent text-xs font-bold rounded-full"
+              >Ags - Des 2025</span
+            >
+            <h3
+              class="text-xl font-bold text-indigo-950 dark:text-white mt-3 mb-2"
+            >
+              Web Developer Intern
+            </h3>
+            <p class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-4">
+              Sevenpion (PT. Semesta Ruang Inovasi), Yogyakarta
+            </p>
+            <ul
+              class="list-disc list-outside ml-4 text-indigo-900/80 dark:text-indigo-100/80 text-sm leading-relaxed space-y-1.5 md:columns-2"
+            >
+              <li>
+                Melakukan pengujian manual pada website untuk memastikan fitur
+                berjalan sesuai kebutuhan pengguna.
+              </li>
+              <li>
+                Menyusun dan menjalankan test case, mencatat bug, serta
+                mendokumentasikan hasil pengujian.
+              </li>
+              <li>
+                Mengembangkan antarmuka website berbasis AI dengan fokus pada
+                tampilan yang responsif dan mudah digunakan.
+              </li>
+              <li>
+                Terlibat dalam proses analisis kebutuhan dan perbaikan alur
+                penggunaan (user flow) berdasarkan hasil pengujian.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h3
+          class="text-xl font-bold text-indigo-950 dark:text-white mt-16 mb-6"
+        >
+          Organisasi & Magang Lainnya
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="clay-card p-5">
+            <h4 class="text-sm font-bold text-indigo-950 dark:text-white">
+              Admin Kualifikasi Atlet Disabilitas
+            </h4>
+            <p class="text-indigo-900/60 dark:text-indigo-200/50 text-xs mt-1">
+              NPCI Jawa Tengah • Sep - Okt 2025
+            </p>
+          </div>
+          <div class="clay-card p-5">
+            <h4 class="text-sm font-bold text-indigo-950 dark:text-white">
+              Asisten Praktikum Algoritma dan Pemrograman
+            </h4>
+            <p class="text-indigo-900/60 dark:text-indigo-200/50 text-xs mt-1">
+              Universitas Amikom Yogyakarta • Sep - Des 2024
+            </p>
+          </div>
+          <div class="clay-card p-5">
+            <h4 class="text-sm font-bold text-indigo-950 dark:text-white">
+              Mentor Belajar Bareng Matematika Diskrit & Aljabar Linear
+            </h4>
+            <p class="text-indigo-900/60 dark:text-indigo-200/50 text-xs mt-1">
+              Universitas Amikom Yogyakarta • Mei 2025
+            </p>
+          </div>
+          <div class="clay-card p-5">
+            <h4 class="text-sm font-bold text-indigo-950 dark:text-white">
+              Kesekretarisan & Asisten Praktikum AGS 2025
+            </h4>
+            <p class="text-indigo-900/60 dark:text-indigo-200/50 text-xs mt-1">
+              Amikom Computer Club (AMCC) • Feb 2025
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 relative">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <h2
+          class="text-3xl font-extrabold text-indigo-950 dark:text-white mb-2"
+        >
+          Karya & Proyek
+        </h2>
+        <p class="text-indigo-900/60 dark:text-indigo-200/50 mb-10 text-sm">
+          Beberapa aplikasi dan prototipe yang pernah dikerjakan.
         </p>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-            <h3 class="font-bold text-dark">Data Science</h3>
-            <p class="text-sm text-slate-500">Python, Pandas, NumPy</p>
-          </div>
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-            <h3 class="font-bold text-dark">Visualization</h3>
-            <p class="text-sm text-slate-500">Matplotlib, Seaborn</p>
-          </div>
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-            <h3 class="font-bold text-dark">Dashboard</h3>
-            <p class="text-sm text-slate-500">Streamlit, Tableau</p>
-          </div>
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-            <h3 class="font-bold text-dark">Web Dev</h3>
-            <p class="text-sm text-slate-500">HTML, CSS, Tailwind</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="py-24 bg-slate-50">
-      <div class="container mx-auto px-6 max-w-5xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-dark">
-            Pengalaman Profesional
-          </h2>
-          <p class="text-slate-500 mt-2">
-            Jejak karir dan kontribusi saya sejauh ini.
-          </p>
-        </div>
-
-        <div class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           <div
-            class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 hover:shadow-md transition"
+            class="clay-card flex flex-col group overflow-hidden md:col-span-2"
           >
-            <div class="md:w-1/4">
-              <span class="text-primary font-bold text-lg">Ags - Des 2025</span>
-              <p class="text-slate-400 text-sm">Magang</p>
-            </div>
-            <div class="md:w-3/4">
-              <h3 class="text-xl font-bold text-dark">Web Developer Intern</h3>
-              <p class="text-slate-600 mb-2 font-medium">
-                Sevenpion by PT. Semesta Ruang Inovasi
-              </p>
-              <p class="text-slate-500 text-sm leading-relaxed">
-                Mengembangkan antarmuka website berbasis AI yang responsif,
-                melakukan testing manual (bug tracking), serta berkolaborasi
-                dengan tim developer untuk validasi sistem.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 hover:shadow-md transition"
-          >
-            <div class="md:w-1/4">
-              <span class="text-primary font-bold text-lg">Sep - Okt 2025</span>
-              <p class="text-slate-400 text-sm">Magang</p>
-            </div>
-            <div class="md:w-3/4">
-              <h3 class="text-xl font-bold text-dark">Admin Data Atlet</h3>
-              <p class="text-slate-600 mb-2 font-medium">NPCI Jawa Tengah</p>
-              <p class="text-slate-500 text-sm leading-relaxed">
-                Mengelola dan memvalidasi database atlet disabilitas se-Jawa
-                Tengah, menyusun rekapitulasi data menggunakan spreadsheet untuk
-                kebutuhan kejuaraan provinsi.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 hover:shadow-md transition"
-          >
-            <div class="md:w-1/4">
-              <span class="text-primary font-bold text-lg">Sep - Des 2024</span>
-              <p class="text-slate-400 text-sm">Kampus</p>
-            </div>
-            <div class="md:w-3/4">
-              <h3 class="text-xl font-bold text-dark">Asisten Praktikum</h3>
-              <p class="text-slate-600 mb-2 font-medium">
-                Universitas Amikom Yogyakarta
-              </p>
-              <p class="text-slate-500 text-sm leading-relaxed">
-                Mendampingi dosen dalam mata kuliah Algoritma & Pemrograman.
-                Mengajar logika dasar, array, dan pointer kepada mahasiswa
-                junior.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio" class="py-24 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-dark">
-            Portofolio Data
-          </h2>
-          <p class="text-slate-500 mt-2">
-            Koleksi notebook analisis dan visualisasi data yang telah saya
-            kerjakan.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-teal-500/10 transition duration-300 border border-slate-100"
-          >
-            <div class="h-52 overflow-hidden relative">
-              <div
-                class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition z-10"
-              ></div>
+            <div class="project-img-container img-h-64">
               <img
-                src="asset/porto-1.png"
-                alt="Analisis Data Mentah"
-                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                src="asset/proyek-2.png"
+                alt="Ropi HR"
+                class="w-full h-full object-cover"
               />
             </div>
-            <div class="p-8 relative">
+            <div class="p-6 flex-1 flex flex-col">
               <div
-                class="absolute -top-6 right-8 bg-teal-500 text-white p-3 rounded-xl shadow-lg"
+                class="text-xs text-brand mb-2 uppercase tracking-widest font-bold"
               >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  ></path>
-                </svg>
+                Full-Stack & API
               </div>
-              <h3
-                class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition"
+              <h4
+                class="text-xl font-bold text-indigo-950 dark:text-white mb-2 group-hover:text-brand transition"
               >
-                Analitik Data Mentah
-              </h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                Proses transformasi data mentah menjadi format siap analisis.
-                Mencakup statistik deskriptif awal dan visualisasi dasar untuk
-                memahami distribusi data.
+                Ropi HR
+              </h4>
+              <p
+                class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-4 leading-relaxed flex-1"
+              >
+                Dashboard khusus HRD untuk memantau absensi karyawan secara
+                real-time (telat, hadir, cuti, izin, lembur). Aplikasi
+                terkoneksi langsung lewat API dari sistem ERPNext.
               </p>
-              <a
-                href="https://drive.google.com/file/d/1ARNU_LpD73g-jBgoKp5G-TtgrbJK6Hrw/view?usp=sharing"
-                target="_blank"
-                class="inline-flex items-center text-primary font-bold text-sm hover:underline"
-              >
-                Lihat Notebook <span class="ml-2">&rarr;</span>
-              </a>
+              <div class="flex gap-2 flex-wrap mt-auto">
+                <a
+                  href="https://ropi-hr.vercel.app/"
+                  target="_blank"
+                  class="project-link clay-btn"
+                  >Demo</a
+                >
+                <a
+                  href="https://github.com/callmevan1120/ropi-hr-frontend"
+                  target="_blank"
+                  class="project-link clay-inner text-indigo-900 dark:text-indigo-100"
+                  >Frontend</a
+                >
+                <a
+                  href="https://github.com/callmevan1120/ropi-hr-backend"
+                  target="_blank"
+                  class="project-link clay-inner text-indigo-900 dark:text-indigo-100"
+                  >Backend</a
+                >
+              </div>
             </div>
           </div>
-
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-teal-500/10 transition duration-300 border border-slate-100"
-          >
-            <div class="h-52 overflow-hidden relative">
+          <div class="clay-card flex flex-col group overflow-hidden">
+            <div class="project-img-container img-h-64">
+              <img
+                src="asset/proyek-1.png"
+                alt="Tunai Tani"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
               <div
-                class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition z-10"
-              ></div>
+                class="text-xs text-accent mb-2 uppercase tracking-widest font-bold"
+              >
+                Competition Project
+              </div>
+              <h4
+                class="text-xl font-bold text-indigo-950 dark:text-white mb-2 group-hover:text-brand transition"
+              >
+                Tunai Tani
+              </h4>
+              <p
+                class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-4 leading-relaxed flex-1"
+              >
+                Prototipe antarmuka website menggunakan React JS untuk
+                memvisualisasikan ide inovasi pertanian digital. Meraih Juara
+                Harapan 2 Lomba Esai Nasional UNS.
+              </p>
+              <div class="flex gap-2 flex-wrap mt-auto">
+                <a
+                  href="https://tunai-tani.vercel.app/"
+                  target="_blank"
+                  class="project-link clay-btn"
+                  >Demo</a
+                >
+                <a
+                  href="https://github.com/callmevan1120/tunai-tani"
+                  target="_blank"
+                  class="project-link clay-inner text-indigo-900 dark:text-indigo-100"
+                  >Repo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div class="clay-card flex flex-col group overflow-hidden">
+            <div class="project-img-container img-h-48">
+              <img
+                src="asset/proyek-6.png"
+                alt="E-Jurnal"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div
+                class="text-xs text-accent mb-2 uppercase tracking-widest font-bold"
+              >
+                Full-Stack Laravel
+              </div>
+              <h4
+                class="text-xl font-bold text-indigo-950 dark:text-white mb-2 group-hover:text-brand transition"
+              >
+                E-Jurnal Agenda Guru
+              </h4>
+              <p
+                class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-4 leading-relaxed flex-1"
+              >
+                Aplikasi web untuk mendigitalisasi sistem pencatatan agenda dan
+                jurnal harian guru SMP.
+              </p>
+              <div class="flex gap-2 flex-wrap mt-auto">
+                <span
+                  class="px-3 py-1 clay-inner text-indigo-900 dark:text-indigo-100 text-[10px] rounded-full font-medium"
+                  >Laravel</span
+                >
+                <span
+                  class="px-3 py-1 clay-inner text-indigo-900 dark:text-indigo-100 text-[10px] rounded-full font-medium"
+                  >MySQL</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="clay-card flex flex-col group overflow-hidden">
+            <div class="project-img-container img-h-48">
+              <img
+                src="asset/proyek-3.png"
+                alt="FinanceKu"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div
+                class="text-xs text-brand mb-2 uppercase tracking-widest font-bold"
+              >
+                Front-End Prototype
+              </div>
+              <h4
+                class="text-xl font-bold text-indigo-950 dark:text-white mb-2 group-hover:text-brand transition"
+              >
+                FinanceKu
+              </h4>
+              <p
+                class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-4 leading-relaxed flex-1"
+              >
+                Prototipe HTML untuk aplikasi manajemen keuangan yang
+                dikhususkan bagi vendor freelance.
+              </p>
+              <div class="flex gap-2 flex-wrap mt-auto">
+                <a
+                  href="https://financeku-two.vercel.app/"
+                  target="_blank"
+                  class="project-link clay-btn text-xs"
+                  >Demo</a
+                >
+                <a
+                  href="https://github.com/callmevan1120/Financeku"
+                  target="_blank"
+                  class="project-link clay-inner text-indigo-900 dark:text-indigo-100 text-xs"
+                  >Repo</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="clay-card flex flex-col group overflow-hidden">
+            <div class="project-img-container img-h-48">
+              <img
+                src="asset/proyek-4.png"
+                alt="Purchasing App"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div
+                class="text-xs text-accent mb-2 uppercase tracking-widest font-bold"
+              >
+                Front-End Prototype
+              </div>
+              <h4
+                class="text-xl font-bold text-indigo-950 dark:text-white mb-2 group-hover:text-brand transition"
+              >
+                Purchasing App
+              </h4>
+              <p
+                class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-4 leading-relaxed flex-1"
+              >
+                Slicing prototipe HTML untuk modul pembelian (purchasing) yang
+                dirancang untuk klien freelance.
+              </p>
+              <div class="flex gap-2 flex-wrap mt-auto">
+                <a
+                  href="https://purchase-order-liart.vercel.app/"
+                  target="_blank"
+                  class="project-link clay-btn text-xs"
+                  >Demo</a
+                >
+                <a
+                  href="https://github.com/callmevan1120/purchase-order"
+                  target="_blank"
+                  class="project-link clay-inner text-indigo-900 dark:text-indigo-100 text-xs"
+                  >Repo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          <div
+            class="clay-card flex flex-col md:flex-row group overflow-hidden"
+          >
+            <div
+              class="project-img-container md:w-1/2 img-h-64 md:h-auto rounded-none md:rounded-l-[2rem]"
+            >
+              <img
+                src="asset/proyek-5.png"
+                alt="Barcode Server"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div
+                class="text-xs text-emerald-500 mb-2 uppercase tracking-widest font-bold"
+              >
+                API Service
+              </div>
+              <h4
+                class="text-xl font-bold text-indigo-950 dark:text-white mb-2 group-hover:text-brand transition"
+              >
+                Barcode Server
+              </h4>
+              <p
+                class="text-indigo-900/70 dark:text-indigo-200/60 text-sm mb-4 leading-relaxed flex-1"
+              >
+                API server generate barcode label sebagai lapisan antisipasi
+                jika terjadi downtime pada aplikasi pihak ketiga.
+              </p>
+              <div class="flex gap-2 flex-wrap mt-auto">
+                <a
+                  href="https://generator-barcode-qr-code.vercel.app/"
+                  target="_blank"
+                  class="project-link clay-btn text-xs"
+                  >Demo</a
+                >
+                <a
+                  href="https://github.com/callmevan1120/pelabelan"
+                  target="_blank"
+                  class="project-link clay-inner text-indigo-900 dark:text-indigo-100 text-xs"
+                  >Repo</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+        </div>
+
+        <!-- Data Section -->
+        <h3
+          class="text-xl font-bold text-brand mb-6 border-b-2 border-dashed border-indigo-300 dark:border-indigo-800 pb-2"
+        >
+          Analitik Data & Machine Learning
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a
+            href="https://drive.google.com/file/d/1ARNU_LpD73g-jBgoKp5G-TtgrbJK6Hrw/view?usp=sharing"
+            target="_blank"
+            class="clay-card flex flex-col group overflow-hidden cursor-pointer"
+          >
+            <div class="project-img-container img-h-48">
+              <img
+                src="asset/porto-1.png"
+                alt="Analitik Data"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <h4
+                class="text-base font-bold text-indigo-950 dark:text-white mb-1 group-hover:text-brand transition"
+              >
+                Analitik Data Mentah
+              </h4>
+              <p
+                class="text-indigo-900/60 dark:text-indigo-200/50 text-xs leading-relaxed flex-1"
+              >
+                Script Python untuk transformasi data, cleaning, dan ekstraksi
+                insight deskriptif awal.
+              </p>
+              <span class="text-[10px] text-brand font-semibold mt-2"
+                >Lihat Notebook &rarr;</span
+              >
+            </div>
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1jOVsDBB0MhqLrVu13i4eTxyD7egU3Mwe/view?usp=sharing"
+            target="_blank"
+            class="clay-card flex flex-col group overflow-hidden cursor-pointer"
+          >
+            <div class="project-img-container img-h-48">
               <img
                 src="asset/porto-2.png"
                 alt="Visualisasi Data"
-                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                class="w-full h-full object-cover"
               />
             </div>
-            <div class="p-8 relative">
-              <div
-                class="absolute -top-6 right-8 bg-indigo-500 text-white p-3 rounded-xl shadow-lg"
+            <div class="p-5 flex-1 flex flex-col">
+              <h4
+                class="text-base font-bold text-indigo-950 dark:text-white mb-1 group-hover:text-brand transition"
               >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-                  ></path>
-                </svg>
-              </div>
-              <h3
-                class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition"
+                Visualisasi Data
+              </h4>
+              <p
+                class="text-indigo-900/60 dark:text-indigo-200/50 text-xs leading-relaxed flex-1"
               >
-                Visualisasi Data Kompleks
-              </h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                Eksplorasi teknik visualisasi untuk data terstruktur dan tidak
-                terstruktur. Mengungkap pola tersembunyi menggunakan berbagai
-                tipe chart tingkat lanjut.
+                Grafik visualisasi pola dan tren menggunakan Matplotlib &
+                Seaborn.
               </p>
-              <a
-                href="https://drive.google.com/file/d/1jOVsDBB0MhqLrVu13i4eTxyD7egU3Mwe/view?usp=sharing"
-                target="_blank"
-                class="inline-flex items-center text-primary font-bold text-sm hover:underline"
+              <span class="text-[10px] text-brand font-semibold mt-2"
+                >Lihat Notebook &rarr;</span
               >
-                Lihat Notebook <span class="ml-2">&rarr;</span>
-              </a>
             </div>
-          </div>
-
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-teal-500/10 transition duration-300 border border-slate-100"
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1-yBIA_hP5wkMGn4PN5g5A9OzEc4mfXDH/view?usp=sharing"
+            target="_blank"
+            class="clay-card flex flex-col group overflow-hidden cursor-pointer"
           >
-            <div class="h-52 overflow-hidden relative">
-              <div
-                class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition z-10"
-              ></div>
+            <div class="project-img-container img-h-48">
               <img
                 src="asset/porto-3.png"
-                alt="Preprocessing"
-                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                alt="Pembersihan Data"
+                class="w-full h-full object-cover"
               />
             </div>
-            <div class="p-8 relative">
-              <div
-                class="absolute -top-6 right-8 bg-teal-500 text-white p-3 rounded-xl shadow-lg"
+            <div class="p-5 flex-1 flex flex-col">
+              <h4
+                class="text-base font-bold text-indigo-950 dark:text-white mb-1 group-hover:text-brand transition"
               >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                  ></path>
-                </svg>
-              </div>
-              <h3
-                class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition"
+                Pembersihan Data (Data Cleaning)
+              </h4>
+              <p
+                class="text-indigo-900/60 dark:text-indigo-200/50 text-xs leading-relaxed flex-1"
               >
-                Advanced Preprocessing
-              </h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                Teknik pembersihan data mendalam (Data Cleaning), penanganan
-                missing values, dan feature engineering untuk memastikan
-                kualitas data sebelum pemodelan.
+                Teknik pembersihan data mendalam, penanganan missing values, dan
+                feature engineering.
               </p>
-              <a
-                href="https://drive.google.com/file/d/1-yBIA_hP5wkMGn4PN5g5A9OzEc4mfXDH/view?usp=sharing"
-                target="_blank"
-                class="inline-flex items-center text-primary font-bold text-sm hover:underline"
+              <span class="text-[10px] text-brand font-semibold mt-2"
+                >Lihat Notebook &rarr;</span
               >
-                Lihat Notebook <span class="ml-2">&rarr;</span>
-              </a>
             </div>
-          </div>
-
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-teal-500/10 transition duration-300 border border-slate-100"
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1zlJK8XQrPYwVpevrvxxiItWZR08sbvOg/view?usp=sharing"
+            target="_blank"
+            class="clay-card flex flex-col group overflow-hidden cursor-pointer"
           >
-            <div class="h-52 overflow-hidden relative">
-              <div
-                class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition z-10"
-              ></div>
+            <div class="project-img-container img-h-48">
               <img
                 src="asset/porto-4.png"
-                alt="Data Insight"
-                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                alt="Riset Sentimen"
+                class="w-full h-full object-cover"
               />
             </div>
-            <div class="p-8 relative">
-              <div
-                class="absolute -top-6 right-8 bg-indigo-500 text-white p-3 rounded-xl shadow-lg"
+            <div class="p-5 flex-1 flex flex-col">
+              <h4
+                class="text-base font-bold text-indigo-950 dark:text-white mb-1 group-hover:text-brand transition"
               >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  ></path>
-                </svg>
-              </div>
-              <h3
-                class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition"
+                Riset Analisis Sentimen Film
+              </h4>
+              <p
+                class="text-indigo-900/60 dark:text-indigo-200/50 text-xs leading-relaxed flex-1"
               >
-                Data Storytelling & Insight
-              </h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                Fokus pada interpretasi hasil analisis. Menyajikan "Actionable
-                Insights" dari kumpulan data yang kompleks agar mudah dipahami
-                oleh pengambil keputusan.
+                Preprocessing teks (cleaning, tokenisasi, stopword removal) dan
+                eksperimen model klasifikasi sentimen.
               </p>
-              <a
-                href="https://drive.google.com/file/d/1zlJK8XQrPYwVpevrvxxiItWZR08sbvOg/view?usp=sharing"
-                target="_blank"
-                class="inline-flex items-center text-primary font-bold text-sm hover:underline"
+              <span class="text-[10px] text-brand font-semibold mt-2"
+                >Lihat Notebook &rarr;</span
               >
-                Lihat Notebook <span class="ml-2">&rarr;</span>
-              </a>
             </div>
-          </div>
-
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-teal-500/10 transition duration-300 border border-slate-100"
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1JGBMotaRkI7kOFf70MaJRQjFvY1eTLXx/view?usp=drive_link"
+            target="_blank"
+            class="clay-card flex flex-col group overflow-hidden cursor-pointer"
           >
-            <div class="h-52 overflow-hidden relative">
-              <div
-                class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition z-10"
-              ></div>
+            <div class="project-img-container img-h-48">
               <img
                 src="asset/porto-5.png"
                 alt="Dashboard"
-                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                class="w-full h-full object-cover"
               />
             </div>
-            <div class="p-8 relative">
-              <div
-                class="absolute -top-6 right-8 bg-teal-500 text-white p-3 rounded-xl shadow-lg"
-              >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                  ></path>
-                </svg>
-              </div>
-              <h3
-                class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition"
+            <div class="p-5 flex-1 flex flex-col">
+              <h4
+                class="text-base font-bold text-indigo-950 dark:text-white mb-1 group-hover:text-brand transition"
               >
                 End-to-End Dashboard
-              </h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                Integrasi penuh mulai dari Data Collection, Exploratory Data
-                Analysis (EDA), hingga penyajian visualisasi dalam bentuk
-                Dashboard interaktif.
-              </p>
-              <a
-                href="https://drive.google.com/file/d/1JGBMotaRkI7kOFf70MaJRQjFvY1eTLXx/view?usp=drive_link"
-                target="_blank"
-                class="inline-flex items-center text-primary font-bold text-sm hover:underline"
+              </h4>
+              <p
+                class="text-indigo-900/60 dark:text-indigo-200/50 text-xs leading-relaxed flex-1"
               >
-                Lihat Notebook <span class="ml-2">&rarr;</span>
-              </a>
+                Pipeline lengkap dari Data Collection, EDA, hingga penyajian
+                visualisasi interaktif Streamlit.
+              </p>
+              <span class="text-[10px] text-brand font-semibold mt-2"
+                >Lihat Notebook &rarr;</span
+              >
             </div>
-          </div>
-
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-teal-500/10 transition duration-300 border border-slate-100"
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1D15Vt25oM_Ah7GpbI8eQktxkbxxEdXNq/view?usp=drive_link"
+            target="_blank"
+            class="clay-card flex flex-col group overflow-hidden cursor-pointer"
           >
-            <div class="h-52 overflow-hidden relative">
-              <div
-                class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition z-10"
-              ></div>
+            <div class="project-img-container img-h-48">
               <img
                 src="asset/porto-6.png"
-                alt="Responsi Final"
-                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                alt="Eksperimen ML"
+                class="w-full h-full object-cover"
               />
             </div>
-            <div class="p-8 relative">
-              <div
-                class="absolute -top-6 right-8 bg-indigo-500 text-white p-3 rounded-xl shadow-lg"
+            <div class="p-5 flex-1 flex flex-col">
+              <h4
+                class="text-base font-bold text-indigo-950 dark:text-white mb-1 group-hover:text-brand transition"
               >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  ></path>
-                </svg>
-              </div>
-              <h3
-                class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition"
+                Eksperimen Model ML
+              </h4>
+              <p
+                class="text-indigo-900/60 dark:text-indigo-200/50 text-xs leading-relaxed flex-1"
               >
-                Responsi Analisis Data
-              </h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                Projek komprehensif (Final Assessment) yang menguji seluruh
-                kemampuan analisis data, mulai dari pemahaman masalah hingga
-                penyajian solusi berbasis data.
+                Projek komprehensif yang menguji kemampuan analisis dan evaluasi
+                akurasi model klasifikasi.
               </p>
-              <a
-                href="https://drive.google.com/file/d/1D15Vt25oM_Ah7GpbI8eQktxkbxxEdXNq/view?usp=drive_link"
-                target="_blank"
-                class="inline-flex items-center text-primary font-bold text-sm hover:underline"
+              <span class="text-[10px] text-brand font-semibold mt-2"
+                >Lihat Notebook &rarr;</span
               >
-                Lihat Notebook <span class="ml-2">&rarr;</span>
-              </a>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <footer id="contact" class="bg-dark text-slate-400 py-16">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-white text-3xl font-bold mb-8">Siap Berkolaborasi?</h2>
-        <div
-          class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10"
+    <!-- Sertifikasi Section -->
+    <section
+      id="certifications"
+      class="py-20 relative border-t border-indigo-200 dark:border-indigo-800"
+    >
+      <div class="container mx-auto px-6 max-w-6xl">
+        <h2
+          class="text-3xl font-extrabold text-indigo-950 dark:text-white mb-10"
         >
-          <a
-            href="mailto:vanyekak@gmail.com"
-            class="flex items-center gap-2 text-white bg-slate-800 px-6 py-3 rounded-lg hover:bg-primary transition"
+          Sertifikasi & Penghargaan
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 auto-rows-fr">
+          <div
+            class="clay-card flex flex-col group overflow-hidden row-span-1 md:row-span-2"
           >
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <div
+              class="project-img-container img-h-72 md:h-full rounded-b-none"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-            vanyekak@gmail.com
+              <img
+                src="asset/ser-1.jpeg"
+                alt="Juara Harapan 2"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <h3
+                class="text-sm md:text-base font-bold text-indigo-950 dark:text-white mb-1"
+              >
+                Juara Harapan 2 Esai Nasional
+              </h3>
+              <p
+                class="text-indigo-900/60 dark:text-indigo-200/50 text-xs mt-auto"
+              >
+                Universitas Sebelas Maret
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="https://apic.id/jurnal/index.php/jsc/article/view/570"
+            target="_blank"
+            class="clay-card flex flex-col md:flex-row group overflow-hidden md:col-span-2 cursor-pointer hover:border-brand transition"
+          >
+            <div
+              class="project-img-container md:w-1/2 img-h-48 md:h-auto rounded-none md:rounded-l-[2rem]"
+            >
+              <img
+                src="asset/ser-3.jpeg"
+                alt="Sertifikat Pembicara"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-center">
+              <h3
+                class="text-base font-bold text-indigo-950 dark:text-white mb-1 group-hover:text-brand transition"
+              >
+                Sertifikasi Pembicara
+              </h3>
+              <p class="text-indigo-900/60 dark:text-indigo-200/50 text-xs">
+                Pelatihan Web Programming Kopma UPN "Veteran" Yogyakarta
+              </p>
+            </div>
           </a>
-          <a
-            href="tel:+6285780135020"
-            class="flex items-center gap-2 text-white bg-slate-800 px-6 py-3 rounded-lg hover:bg-primary transition"
+
+          <div
+            class="clay-card flex flex-col group overflow-hidden row-span-1 md:row-span-2"
           >
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <div
+              class="project-img-container img-h-72 md:h-full rounded-b-none"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
-            +62 857 8013 5020
+              <img
+                src="asset/ser-2.jpeg"
+                alt="Asisten Praktikum"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <h3
+                class="text-sm md:text-base font-bold text-indigo-950 dark:text-white mb-1"
+              >
+                Asisten Praktikum Algoritma dan Pemrograman
+              </h3>
+              <p
+                class="text-indigo-900/60 dark:text-indigo-200/50 text-xs mt-auto"
+              >
+                Universitas Amikom Yogyakarta
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="https://apic.id/jurnal/index.php/jsc/article/view/570"
+            target="_blank"
+            class="clay-card flex flex-col md:flex-row group overflow-hidden md:col-span-2 md:col-start-2 cursor-pointer hover:border-brand transition"
+          >
+            <div
+              class="project-img-container md:w-1/2 img-h-48 md:h-auto rounded-none md:rounded-l-[2rem]"
+            >
+              <img
+                src="asset/ser-4.png"
+                alt="Publikasi Jurnal"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-center">
+              <h3
+                class="text-base font-bold text-indigo-950 dark:text-white mb-1 group-hover:text-brand transition"
+              >
+                Publikasi Jurnal
+              </h3>
+              <p class="text-indigo-900/60 dark:text-indigo-200/50 text-xs">
+                Penelitian Analisis Sentimen
+              </p>
+              <span class="text-[10px] text-brand font-semibold mt-2"
+                >Lihat Jurnal &rarr;</span
+              >
+            </div>
           </a>
         </div>
-        <p class="text-sm border-t border-slate-800 pt-8">
-          &copy; 2026 Vany Eka Karunia. Crafted with Precision.
+      </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer
+      id="contact"
+      class="py-20 border-t border-indigo-200 dark:border-indigo-800 bg-indigo-100/50 dark:bg-[#0E0C2E]"
+    >
+      <div class="container mx-auto px-6 text-center max-w-2xl">
+        <h2
+          class="text-3xl font-extrabold text-indigo-950 dark:text-white mb-4"
+        >
+          Tertarik Berkolaborasi?
+        </h2>
+        <p class="text-indigo-900/60 dark:text-indigo-200/50 mb-10 text-sm">
+          Jika membutuhkan developer untuk membangun web, integrasi sistem ERP,
+          atau mengolah data analitik, silakan hubungi saya.
+        </p>
+
+        <div class="flex justify-center items-center gap-6 mb-12">
+          <a
+            href="mailto:vanyekak@gmail.com"
+            class="w-16 h-16 flex items-center justify-center clay-card text-indigo-800 dark:text-indigo-200 hover:text-white hover:bg-[#EA4335] transition"
+          >
+            <svg
+              class="w-7 h-7"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7" />
+            </svg>
+          </a>
+          <a
+            href="https://wa.me/6285780135020"
+            target="_blank"
+            class="w-16 h-16 flex items-center justify-center clay-card text-indigo-800 dark:text-indigo-200 hover:text-white hover:bg-[#25D366] transition"
+          >
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://github.com/callmevan1120"
+            target="_blank"
+            class="w-16 h-16 flex items-center justify-center clay-card text-indigo-800 dark:text-indigo-200 hover:text-white hover:bg-[#333] transition"
+          >
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/vany-eka-k-744944288"
+            target="_blank"
+            class="w-16 h-16 flex items-center justify-center clay-card text-indigo-800 dark:text-indigo-200 hover:text-white hover:bg-[#0077B5] transition"
+          >
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <p class="text-xs text-indigo-800/40 dark:text-indigo-200/30">
+          &copy; 2026 Vany Eka Karunia.
         </p>
       </div>
     </footer>
+
+    <!-- Script Dark Mode Toggle -->
+    <script>
+      const html = document.querySelector("html");
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const themeToggleBtnMobile = document.getElementById(
+        "theme-toggle-mobile",
+      );
+
+      function toggleTheme() {
+        html.classList.toggle("dark");
+        const isDark = html.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      }
+
+      themeToggleBtn.addEventListener("click", toggleTheme);
+      themeToggleBtnMobile.addEventListener("click", toggleTheme);
+
+      if (localStorage.getItem("theme") === "light") {
+        html.classList.remove("dark");
+      } else {
+        html.classList.add("dark");
+      }
+    </script>
   </body>
 </html>
